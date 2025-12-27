@@ -1,0 +1,33 @@
+# Node modules (very important)
+node_modules
+backend/node_modules
+frontend/node_modules
+
+# Logs
+npm-debug.log
+yarn-error.log
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Git
+.git
+.gitignore
+
+# Docker files (optional but recommended)
+Dockerfile
+docker-compose.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build cache
+frontend/build
+backend/dist
+
+# Editor config
+.vscode
+.idea
