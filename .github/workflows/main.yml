@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t any .
+          docker build -t my-app .
 
       - name: Tag Docker image
         run: |
