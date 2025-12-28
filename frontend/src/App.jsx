@@ -14,7 +14,7 @@ const App = () => {
     <p className='text-center font-medium text-md'>Subscribe to our newsletter for daily updates.</p>
     <input type="text" className='border-2 p-2 rounded-md text-center bg-gray-100 border-none  focus:outline-teal-800' placeholder='you@example.com'/>
     <button className='bg-teal-800 text-white p-2 rounded-full hover:cursor-pointer px-16 py-2'>Subscribe</button>
-    <p>We value your privacy and promise not to spam you.</p>
+    <p>We value your privacy </p>
     </div>
    </div>
   )
