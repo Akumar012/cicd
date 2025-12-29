@@ -42,6 +42,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Copy docker-compose.yml to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "docker-compose.yml"
+          target: "~/basics"
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
@@ -50,5 +62,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/basics
+            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
             docker-compose pull
-            docker-compose up -d
+            docker-compose up -d --force-recreate
